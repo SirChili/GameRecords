@@ -1,3 +1,5 @@
+//Reading rows of data from a file (spreadsheet), storing them in an array of struct objects, and doing some data analytics
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -57,5 +59,6 @@ int main() {
 
 	}
 	
+
 
 }
