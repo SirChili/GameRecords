@@ -62,3 +62,41 @@ int main() {
 
 
 }
+
+//Different way of printing a file into the output
+/*
+#include <fstream>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//Currently commented out, use later
+
+struct HistoricalEsportsData {
+
+	int date;
+	string game;
+	double earnings;
+	int players;
+	int tournaments;
+
+};
+
+
+int main() {
+
+	char chars{};
+	ifstream File;
+	File.open("C://Users//A00593870//Downloads//HistoricalEsportData.csv");
+
+	while (!File.eof()) { 
+		//eof stands for "End of File"
+
+		cout << chars;
+		File.get(chars);
+
+	}
+
+}
+*/
