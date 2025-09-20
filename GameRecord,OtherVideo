@@ -1,0 +1,70 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <iomanip>
+
+using namespace std;
+
+struct GameRecord{
+
+	string date;
+	string game;
+	double earnings;
+	int players;
+	int tournaments;
+
+};
+
+std::vector<std::string> getFileContents(const std::string& filename)
+{
+    std::vector<std::string> fileContents;
+
+    std::ifstream infile(filename);
+
+    if (!infile)
+    {
+        std::cout << "FNFE\n";
+        __debugbreak(); //optional - to draw attention 
+        return {}; //the "empty vector" 
+    }
+
+    std::string currentLine;
+    while (std::getline(infile, currentLine))
+    {
+        fileContents.push_back(currentLine);
+    }
+
+    return fileContents;
+}
+
+std::vector<std::string> splitRecord_withStringStream(const std::string& record, char delimiter)
+{
+    std::vector<std::string> fields;
+    std::stringstream ss(record);
+    std::string field;
+
+    while (std::getline(ss, field, delimiter))
+    {
+        fields.push_back(field);
+    }
+
+    return fields;
+}
+
+int main() {
+
+	vector<GameRecord> records;
+
+	auto file = getFileContents("HistoricalEsportData.csv");
+
+    for (int i = 0; i < file.size(); ++i) {
+        
+        const char delimiter = ',';
+        auto fields = splitRecord_withStringStream(record, delimiter);
+
+        fields[0],
+    
+    }
+}
