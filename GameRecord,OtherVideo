@@ -59,12 +59,23 @@ int main() {
 
 	auto file = getFileContents("HistoricalEsportData.csv");
 
-    for (int i = 0; i < file.size(); ++i) {
-        
-        const char delimiter = ',';
-        auto fields = splitRecord_withStringStream(record, delimiter);
+    for (const auto& row : file) {
 
-        fields[0],
-    
+        const char delimiter = ',';
+        auto fields = splitRecord_withStringStream(row, delimiter);
+
+        GameRecord currentRecord = {
+
+            fields[0],
+            fields[1],
+            std::stoi(fields[2]),
+            std::stoi(fields[3]),
+            std::stoi(fields[4]),
+
+        };
+
+        records.push_back(currentRecord);
+
     }
+
 }
