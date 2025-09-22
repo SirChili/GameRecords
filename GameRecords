@@ -76,4 +76,6 @@ int main() {
 
 	cout << "did it work?";
 
+//Learn how to use class diagrams on VS
+
 }
