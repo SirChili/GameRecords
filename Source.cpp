@@ -1,5 +1,4 @@
 //Reading rows of data from a file (spreadsheet), storing them in an array of struct objects, and doing some data analytics
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -9,7 +8,7 @@
 
 using namespace std;
 
-struct GameRecord{
+struct GameRecord {
 
 	string date;
 	string game;
@@ -33,48 +32,57 @@ std::vector<std::string> splitRecord_withStringStream(const std::string& record,
 	return fields;
 }
 
+int displayHeader() {
+
+	cout << "Date" << setw(60) << "Game" << setw(20) << "Earnings" << setw(10) << "Players" << setw(15) << "Tournaments\n";
+	cout << "\n__________________________________________________________________________\n";
+
+	return 0;
+
+};
+
 int main() {
 
-	ifstream file("D://RandomFiles//HistoricalEsportData.csv");
+	displayHeader();
 
-	if (!file){
-	
+	//Might have to change the file location...
+	ifstream file("HistoricalEsportData.csv");
+
+	if (!file) {
+
 		cout << "File not Found";
 		return -1; //do this if you don't want to go any further down in the code
 	}
 
 	string currentLine;
-
 	vector<GameRecord> records;
 
-	//auto splitTokens = splitRecord_withStringStream("a.bc,de.fg", '.');
+	int loopCount = 0;
 
+	while (std::getline(file, currentLine)) {
 
-
-	//int loopCount = 0; | Variable for commented out code in the while loop
-	while(std::getline(file, currentLine)) {
-
-		cout << currentLine << "\n\n";
-		
 		auto splitRecord = splitRecord_withStringStream(currentLine, ',');
-		
-		/*
-		int earnings = std::stoi(splitRecord[splitRecord.size() -1]);
+
+		cout << splitRecord[0] << setw(60) << splitRecord[1]
+			<< setw(15) << splitRecord[2]
+			<< setw(10) << splitRecord[3]
+			<< setw(10) << splitRecord[4]
+			<< std::endl;
+
 		loopCount++;
-		*/
-		
+
 		GameRecord currentRecord{
-			//keep getting stoi error for reason unknown
-			/*
+
 			splitRecord[0],
 			splitRecord[1],
 			std::stoi(splitRecord[2]), //need to call stoi to convert string to integer
 			std::stoi(splitRecord[3]),
 			std::stoi(splitRecord[4]),
-			*/
+
 		};
-	
+
 		records.push_back(currentRecord);
 	}
+
 
 }
