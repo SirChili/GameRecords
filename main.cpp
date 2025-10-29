@@ -51,7 +51,7 @@ int main() {
 	if (!file) {
 
 		cout << "File not Found";
-		return -1; //do this if you don't want to go any further down in the code
+		return -1;
 	}
 
 	string currentLine;
@@ -86,4 +86,5 @@ int main() {
 
 
 }
+
 
