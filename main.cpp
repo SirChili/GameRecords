@@ -45,7 +45,7 @@ int main() {
 
 	displayHeader();
 
-	//Might have to change the file location...
+	//File needs to be in the same folder as this script
 	ifstream file("HistoricalEsportData.csv");
 
 	if (!file) {
@@ -86,3 +86,4 @@ int main() {
 
 
 }
+
