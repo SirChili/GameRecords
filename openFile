@@ -1,5 +1,6 @@
 
 //Way of printing a file into the output
+// Unrelated to main.cpp, just here for memorization
 
 #include <fstream>
 #include <iostream>
